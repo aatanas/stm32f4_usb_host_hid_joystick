@@ -1,31 +1,31 @@
-## STM32F401CCU USB HOST PS3 JOYSTICK
+## STM32F4 USB HOST HID JOYSTICK
 
-STM32F401CCU에서 USB Host 기능을 이용해 USB Hid Joystick를 제어하는 프로젝트입니다.
+This project controls a USB Hid Joystick using the USB Host function in STM32F401CCU.
 
 
 
-### 테스트 환경
+### Test Environment
     STM32CubeIDE : 1.7.0 (Build: 10852_20210715_0634(UTC))
 
 
 
-### 핀 사양
+### Pin specifications
 
 ![](./assets/muc_pinout.png)
 
-UART1에는 일반 디버그 메시지를 출력하고
+Output general debug messages on UART1.
 
-UART2에는 UART Packet으로 조이스틱 상태를 전송합니다.
+Joystick status is transmitted as UART Packet on UART2.
 
 
-    UART2 프로토콜 
+    UART2 Protocol 
 
     [STX] [ID] [LEN] [DATA..] [XOR CHECKSUM] [ETX]
 
     STX: 0xAA
     ETX: 0x55
 
-UART2 DATA 구조
+UART2 DATA structure
     
     typedef struct _HID_JOYSTICK_Info
     {
@@ -55,11 +55,11 @@ UART2 DATA 구조
 
 
 
-[유튜브 데모 영상 보기](https://www.youtube.com/watch?v=UHCHiru6jNc&t=16s)
+[Watch the YouTube demo video](https://www.youtube.com/watch?v=UHCHiru6jNc&t=16s)
 
 
 
-### 실제 연결된 모습
+### What it actually looks like connected
 
 ![](./assets/pic0.jpg)
 
